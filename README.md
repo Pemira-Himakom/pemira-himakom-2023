@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Overview: Pemira 2023 Voting System
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+Welcome to the Pemira 2023 Voting System project! This document serves as a guide for our team's development workflow.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Description
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Pemira 2023** is a local organization's voting system. The project involves creating a website with four main pages, including success and error pages. The system aims to provide a seamless and secure voting experience for our users.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Development Workflow
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Trunk-Based Development (TBD)
 
-## Learn More
+We'll be using **Trunk-Based Development** with a single main branch. This approach promotes simplicity and encourages continuous integration.
 
-To learn more about Next.js, take a look at the following resources:
+### Workflow Steps
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Project Setup:**
+   - Lead engineer sets up the project with Next.js and Firebase.
+   - Configures CI/CD workflow using GitHub Actions.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Initial Main Branch:**
+   - Lead engineer pushes the initial main branch.
 
-## Deploy on Vercel
+3. **Daily Development:**
+   - Engineers pull the latest changes from the main branch daily.
+   - Each engineer works on their assigned tasks, writing React code and corresponding tests.
+   - Local testing is encouraged before pushing changes.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Git Hooks (Husky and Prettier):**
+   - **Husky:** Ensures that scripts in package.json are run as pre-commit and pre-push hooks.
+   - **Prettier (AirBnB):** Maintains consistent code formatting across the project.
+   - **Lint Staged:** Runs pre-commit hooks only on the files that are staged in Git.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. **Pushing Changes:**
+   - Engineers push changes directly to the main branch.
+   - GitHub Actions automatically triggers tests on each push.
+
+6. **Continuous Integration:**
+   - GitHub Actions runs unit and integration tests.
+   - If tests pass, the changes are integrated into the main branch.
+
+7. **Manual Deployment:**
+   - For manual deployment, the lead engineer can decide when to trigger a deployment to the production environment.
+   - Engineers coordinate to ensure that the main branch is stable before manual deployment.
+
+8. **Error Handling:**
+   - If tests fail, the engineer who pushed the changes is notified.
+   - The main branch remains stable, preventing the spread of errors to other team members.
+
+### Tools Used
+
+- **ESLint:** A pluggable linting utility for JavaScript and JSX. It helps identify and fix common errors.
+  
+- **Prettier (AirBnB):** An opinionated code formatter that enforces a consistent code style.
+
+- **Lint Staged:** A tool to run linters on pre-committed files. It helps catch issues before they are committed.
+
+ESLint and Prettier will likely to throws some errors, and warnings when your code doesn't conform the guideline. Moreover, upon `git commit`, Husky will run several tests and try to fix any auto-fixable errors and warnings.
+
+### Styling and Directory Structure
+
+- **Tailwind CSS Styles:** We're using styles generated from Tailwind CSS to maintain a consistent and responsive design.
+
+- **Directory Structure:**
+  - `/src`: The main source code directory.
+  - `/src/app`: Specific application-related files.
+  - `/src/components`: Reusable React components.
+  - `/src/hooks`: Custom React hooks.
+  - `public/fonts`: Storing fonts.
+  - `public/images`: Storing images, feel free to create sub-directories for organizing images.
+
+## Conclusion
+
+This workflow balances simplicity with continuous integration, allowing for a smooth development process. Feel free to adapt and iterate on this workflow as the project evolves.
+
+Happy coding, team! 🚀
