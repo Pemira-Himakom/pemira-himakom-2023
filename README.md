@@ -37,15 +37,11 @@ We'll be using **Trunk-Based Development** with a single main branch. This appro
    - Engineers push changes directly to the main branch.
    - GitHub Actions automatically triggers tests on each push.
 
-6. **Continuous Integration:**
-   - GitHub Actions runs unit and integration tests.
-   - If tests pass, the changes are integrated into the main branch.
-
-7. **Manual Deployment:**
+6. **Manual Deployment:**
    - For manual deployment, the lead engineer can decide when to trigger a deployment to the production environment.
    - Engineers coordinate to ensure that the main branch is stable before manual deployment.
 
-8. **Error Handling:**
+7. **Error Handling:**
    - If tests fail, the engineer who pushed the changes is notified.
    - The main branch remains stable, preventing the spread of errors to other team members.
 
@@ -69,7 +65,7 @@ ESLint and Prettier will likely to throws some errors, and warnings when your co
   - `/src/components`: Reusable React components.
   - `/src/hooks`: Custom React hooks.
   - `public/fonts`: Storing fonts.
-  - `public/images`: Storing images, feel free to create sub-directories for organizing images.
+  - `public/images`: Storing images, feel free to create sub-directories for organizing imagesgit.
 
 ## Conclusion
 

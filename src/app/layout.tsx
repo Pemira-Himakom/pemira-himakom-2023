@@ -1,8 +1,7 @@
 import React from 'react';
 import './globals.css';
 import type { Metadata } from 'next';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import localFont from '@next/font/local';
+import localFont from 'next/font/local'
 // eslint-disable-next-line camelcase
 import { Cinzel_Decorative } from 'next/font/google'
  
