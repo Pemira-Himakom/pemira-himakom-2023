@@ -44,7 +44,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${cinzelDecorative.variable} ${ppMori.variable}`}>{children}</body>
+      <body className={`${cinzelDecorative.variable} ${cinzelDecorative.className} ${ppMori.variable} font-sans`}>{children}</body>
     </html>
   );
 }
