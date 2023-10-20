@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         "main": "#212332",
         "main-variant": "#2F3141",
+        "frame": "#101119",
         "pink": "#FFEEE9",
         "gold": "#E4BC53"
       },

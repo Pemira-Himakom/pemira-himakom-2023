@@ -1,12 +1,17 @@
 'use client';
 
+import Button from '@/components/vote/Button';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation'
 import React, { useEffect, useRef, useState } from 'react';
 
-export default function VotePage() {
+export default function ValidatePage() {
+  const router = useRouter()
+
   const [angkatan, setAngkatan] = useState('');
   const [niu, setNIU] = useState('');
   const [fakultas, setFakultas] = useState('');
+  
   const angkatanInput = useRef<HTMLInputElement>(null);
   const niuInput = useRef<HTMLInputElement>(null);
   const fakultasInput = useRef<HTMLInputElement>(null);
@@ -24,8 +29,7 @@ export default function VotePage() {
   }, [niu]);
 
   return (
-    <div className='relative h-screen font-sans'>
-      <div className='absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center md:h-[90%]'>
+    <div className='absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center md:h-[90%]'>
         <div className='z-10 flex w-[85%] flex-col items-center justify-center space-y-[2.5rem] md:w-[60%]'>
           <Image
             src='/images/vote/titleMobile.svg'
@@ -117,16 +121,13 @@ export default function VotePage() {
             </div>
           </div>
           <div className='z-20 pt-8'>
-            <button
-              type='submit'
-              className='rounded-full bg-pink px-12 py-2 text-sm md:px-14 md:py-3 lg:px-20 lg:py-4'
+            <Button
               onClick={() => {
-                // eslint-disable-next-line no-console
-                console.log(`${angkatan}/${niu}/PA/${fakultas}`);
+                router.push(`/vote/cast/`)
               }}
-            >
-              <p className='font-medium md:text-xl lg:text-2xl'>Check Your NIM</p>
-            </button>
+              title="Check your NIM"
+              isActive
+            />
           </div>
         </div>
         <Image
@@ -142,12 +143,5 @@ export default function VotePage() {
           className='block object-contain lg:hidden'
         />
       </div>
-      <Image
-        src='/images/vote/bg.png'
-        alt='bg'
-        fill
-        className='absolute top-0 -z-50 h-full object-cover'
-      />
-    </div>
   );
 }
