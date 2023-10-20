@@ -1,6 +1,0 @@
-{
-  "/_not-found": "app/_not-found.js",
-  "/page": "app/page.js",
-  "/vote/cast/page": "app/vote/cast/page.js",
-  "/vote/validate/page": "app/vote/validate/page.js"
-}
