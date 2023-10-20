@@ -1,0 +1,176 @@
+[debug] [2023-10-20T07:19:33.146Z] ----------------------------------------------------------------------
+[debug] [2023-10-20T07:19:33.149Z] Command:       /usr/local/bin/firebase /Users/andreasnotokusumo/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy
+[debug] [2023-10-20T07:19:33.150Z] CLI Version:   12.7.0
+[debug] [2023-10-20T07:19:33.150Z] Platform:      darwin
+[debug] [2023-10-20T07:19:33.151Z] Node Version:  v16.16.0
+[debug] [2023-10-20T07:19:33.158Z] Time:          Fri Oct 20 2023 14:19:33 GMT+0700 (Western Indonesia Time)
+[debug] [2023-10-20T07:19:33.158Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-20T07:19:33.332Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-20T07:19:33.334Z] > authorizing via signed-in user (andreasnotokusumo@mail.ugm.ac.id)
+[debug] [2023-10-20T07:19:33.335Z] [iam] checking project pemira-himakom-2023 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-10-20T07:19:33.340Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/pemira-himakom-2023:testIamPermissions [none]
+[debug] [2023-10-20T07:19:33.341Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/pemira-himakom-2023:testIamPermissions x-goog-quota-user=projects/pemira-himakom-2023
+[debug] [2023-10-20T07:19:33.343Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/pemira-himakom-2023:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-10-20T07:19:34.852Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/pemira-himakom-2023:testIamPermissions 200
+[debug] [2023-10-20T07:19:34.860Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/pemira-himakom-2023:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-10-20T07:19:34.865Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/pemira-himakom-2023 [none]
+[debug] [2023-10-20T07:19:35.262Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/pemira-himakom-2023 200
+[debug] [2023-10-20T07:19:35.264Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/pemira-himakom-2023 {"projectId":"pemira-himakom-2023","projectNumber":"222637583646","displayName":"pemira-himakom-2023","name":"projects/pemira-himakom-2023","resources":{"hostingSite":"pemira-himakom-2023"},"state":"ACTIVE","etag":"1_f8484f9a-3e2b-41dc-87d5-00423a4e3e12"}
+[debug] [2023-10-20T07:19:39.742Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/pemira-himakom-2023/sites pageToken=&pageSize=10
+[debug] [2023-10-20T07:19:40.567Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/pemira-himakom-2023/sites 200
+[debug] [2023-10-20T07:19:40.569Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/pemira-himakom-2023/sites {"sites":[{"name":"projects/pemira-himakom-2023/sites/pemira-himakom-2023","defaultUrl":"https://pemira-himakom-2023.web.app","appId":"1:222637583646:web:db9b09eee6f0a3c56bed0f","type":"DEFAULT_SITE"},{"name":"projects/pemira-himakom-2023/sites/pemira-himakom-2023-cms","defaultUrl":"https://pemira-himakom-2023-cms.web.app","type":"USER_SITE"}]}
+[debug] [2023-10-20T07:19:40.570Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:222637583646:web:db9b09eee6f0a3c56bed0f/config [none]
+[debug] [2023-10-20T07:19:41.374Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:222637583646:web:db9b09eee6f0a3c56bed0f/config 200
+[debug] [2023-10-20T07:19:41.376Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:222637583646:web:db9b09eee6f0a3c56bed0f/config {"projectId":"pemira-himakom-2023","appId":"1:222637583646:web:db9b09eee6f0a3c56bed0f","storageBucket":"pemira-himakom-2023.appspot.com","apiKey":"AIzaSyDrCmpChpofFqjMybC5n2UqOfg8I-RJ3Bs","authDomain":"pemira-himakom-2023.firebaseapp.com","messagingSenderId":"222637583646","measurementId":"G-CWL1Y2Y9HZ"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info]    Creating an optimized production build ...
+
+[info]    Downloading swc package @next/swc-darwin-x64...
+
+[info]  ✓ Compiled successfully
+
+[info]    Linting and checking validity of types ...
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/6) ...
+
+[info]    Generating static pages (1/6) 
+
+[info]    Generating static pages (2/6) 
+
+[info]    Generating static pages (4/6) 
+
+[info]  ✓ Generating static pages (6/6) 
+
+[info]    Finalizing page optimization ...
+   Collecting build traces ...
+
+[info] 
+
+[info] Route (app)                              Size     First Load JS
+┌ ○ /                                    137 B          80.6 kB
+├ ○ /_not-found                          883 B          81.3 kB
+├ ○ /vote/cast                           1.98 kB        87.5 kB
+└ ○ /vote/validate                       2.3 kB         87.8 kB
++ First Load JS shared by all            80.4 kB
+  ├ chunks/864-cd55b7f599333fff.js       27.5 kB
+  ├ chunks/fd9d1056-b49804a1e6f1a9b7.js  51 kB
+  ├ chunks/main-app-d60d4ce5454a6ce9.js  234 B
+  └ chunks/webpack-2789dd90602e18e2.js   1.73 kB
+
+
+
+[info] ○  (Static)  automatically rendered as static HTML (uses no initial props)
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • Image Optimization
+[info]  • non-static component /_not-found
+[info] 
+[debug] [2023-10-20T07:21:55.909Z] Error: Command failed: npm i --omit dev --no-audit
+    at checkExecSyncError (node:child_process:828:11)
+    at Object.execSync (node:child_process:899:15)
+    at execSync (pkg/prelude/bootstrap.js:2111:30)
+    at prepareFrameworks (/Users/andreasnotokusumo/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/frameworks/index.js:367:42)
+    at async deploy (/Users/andreasnotokusumo/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/deploy/index.js:55:13)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-10-20T07:22:17.959Z] ----------------------------------------------------------------------
+[debug] [2023-10-20T07:22:17.962Z] Command:       /usr/local/bin/firebase /Users/andreasnotokusumo/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy
+[debug] [2023-10-20T07:22:17.963Z] CLI Version:   12.7.0
+[debug] [2023-10-20T07:22:17.963Z] Platform:      darwin
+[debug] [2023-10-20T07:22:17.964Z] Node Version:  v16.16.0
+[debug] [2023-10-20T07:22:17.970Z] Time:          Fri Oct 20 2023 14:22:17 GMT+0700 (Western Indonesia Time)
+[debug] [2023-10-20T07:22:17.970Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-10-20T07:22:18.136Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-10-20T07:22:18.138Z] > authorizing via signed-in user (andreasnotokusumo@mail.ugm.ac.id)
+[debug] [2023-10-20T07:22:18.139Z] [iam] checking project pemira-himakom-2023 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-10-20T07:22:18.143Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/pemira-himakom-2023:testIamPermissions [none]
+[debug] [2023-10-20T07:22:18.144Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/pemira-himakom-2023:testIamPermissions x-goog-quota-user=projects/pemira-himakom-2023
+[debug] [2023-10-20T07:22:18.146Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/pemira-himakom-2023:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-10-20T07:22:19.362Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/pemira-himakom-2023:testIamPermissions 200
+[debug] [2023-10-20T07:22:19.366Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/pemira-himakom-2023:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-10-20T07:22:19.369Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/pemira-himakom-2023 [none]
+[debug] [2023-10-20T07:22:20.066Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/pemira-himakom-2023 200
+[debug] [2023-10-20T07:22:20.067Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/pemira-himakom-2023 {"projectId":"pemira-himakom-2023","projectNumber":"222637583646","displayName":"pemira-himakom-2023","name":"projects/pemira-himakom-2023","resources":{"hostingSite":"pemira-himakom-2023"},"state":"ACTIVE","etag":"1_f8484f9a-3e2b-41dc-87d5-00423a4e3e12"}
+[debug] [2023-10-20T07:22:24.177Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/pemira-himakom-2023/sites pageToken=&pageSize=10
+[debug] [2023-10-20T07:22:24.916Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/pemira-himakom-2023/sites 200
+[debug] [2023-10-20T07:22:24.917Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/pemira-himakom-2023/sites {"sites":[{"name":"projects/pemira-himakom-2023/sites/pemira-himakom-2023","defaultUrl":"https://pemira-himakom-2023.web.app","appId":"1:222637583646:web:db9b09eee6f0a3c56bed0f","type":"DEFAULT_SITE"},{"name":"projects/pemira-himakom-2023/sites/pemira-himakom-2023-cms","defaultUrl":"https://pemira-himakom-2023-cms.web.app","type":"USER_SITE"}]}
+[debug] [2023-10-20T07:22:24.919Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:222637583646:web:db9b09eee6f0a3c56bed0f/config [none]
+[debug] [2023-10-20T07:22:25.539Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:222637583646:web:db9b09eee6f0a3c56bed0f/config 200
+[debug] [2023-10-20T07:22:25.541Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:222637583646:web:db9b09eee6f0a3c56bed0f/config {"projectId":"pemira-himakom-2023","appId":"1:222637583646:web:db9b09eee6f0a3c56bed0f","storageBucket":"pemira-himakom-2023.appspot.com","apiKey":"AIzaSyDrCmpChpofFqjMybC5n2UqOfg8I-RJ3Bs","authDomain":"pemira-himakom-2023.firebaseapp.com","messagingSenderId":"222637583646","measurementId":"G-CWL1Y2Y9HZ"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[info]    Creating an optimized production build ...
+
+[info]  ✓ Compiled successfully
+
+[info]    Linting and checking validity of types ...
+
+[info]    Collecting page data ...
+
+[info]    Generating static pages (0/6) ...
+
+[info]    Generating static pages (1/6) 
+
+[info]    Generating static pages (2/6) 
+
+[info]    Generating static pages (4/6) 
+
+[info]  ✓ Generating static pages (6/6) 
+
+[info]    Finalizing page optimization ...
+
+[info]    Collecting build traces ...
+
+[info] 
+
+[info] Route (app)                              Size     First Load JS
+┌ ○ /                                    137 B          80.6 kB
+├ ○ /_not-found                          883 B          81.3 kB
+├ ○ /vote/cast                           1.98 kB        87.5 kB
+└ ○ /vote/validate                       2.3 kB         87.8 kB
++ First Load JS shared by all            80.4 kB
+  ├ chunks/864-cd55b7f599333fff.js       27.5 kB
+  ├ chunks/fd9d1056-b49804a1e6f1a9b7.js  51 kB
+  ├ chunks/main-app-d60d4ce5454a6ce9.js  234 B
+  └ chunks/webpack-2789dd90602e18e2.js   1.73 kB
+
+
+[info] 
+
+[info] ○  (Static)  automatically rendered as static HTML (uses no initial props)
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • Image Optimization
+[info]  • non-static component /_not-found
+[info] 
+[debug] [2023-10-20T07:23:42.447Z] Error: Command failed: npm i --omit dev --no-audit
+    at checkExecSyncError (node:child_process:828:11)
+    at Object.execSync (node:child_process:899:15)
+    at execSync (pkg/prelude/bootstrap.js:2111:30)
+    at prepareFrameworks (/Users/andreasnotokusumo/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/frameworks/index.js:367:42)
+    at async deploy (/Users/andreasnotokusumo/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/deploy/index.js:55:13)
+[error] 
+[error] Error: An unexpected error has occurred.
