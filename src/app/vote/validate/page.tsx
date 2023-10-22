@@ -8,8 +8,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 export default function ValidatePage() {
   const router = useRouter();
-  const { validate, student } = useValidateNIM();
-  const [error, setError] = useState('');
+  const { validate, isLoading, student, error } = useValidateNIM();
 
   const [angkatan, setAngkatan] = useState('');
   const [niu, setNIU] = useState('');
@@ -30,6 +29,12 @@ export default function ValidatePage() {
       fakultasInput.current?.focus();
     }
   }, [niu]);
+
+  useEffect(() => {
+    if (!isLoading && student) {
+      router.push('/vote/cast');
+    }
+  }, [isLoading, student, router]);
 
   return (
     <div className='absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 transform items-center justify-center md:h-[90%]'>
@@ -129,20 +134,12 @@ export default function ValidatePage() {
           )}
           <Button
             onClick={async () => {
-              try {
-                await validate(`${angkatan}/${niu}/PA/${fakultas}`).then(() => {
-                  if (student) {
-                    router.push('/vote/cast');
-                  } else {
-                    setError("NIM doesn't exist");
-                  }
-                });
-              } catch (e) {
-                setError("NIM doesn't exist");
-              }
+              await validate(`${angkatan}/${niu}/PA/${fakultas}`);
             }}
-            title='Check your NIM'
-            isActive
+            title={isLoading ? 'Checking...' : 'Check your NIM'}
+            isActive={
+              !isLoading && angkatan !== '' && niu !== '' && fakultas !== ''
+            }
           />
         </div>
       </div>

@@ -2,12 +2,21 @@
 
 import Button from '@/components/vote/Button';
 import CandidateCard from '@/components/vote/CandidateCard';
+import useVote from '@/hooks/vote/useVote';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function CastPage() {
+  const { vote, error, isLoading, isSuccess } = useVote();
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [chosenID, setChosenID] = useState<string | null>('');
+
+  useEffect(() => {
+    if(isSuccess && !isLoading) {
+      // eslint-disable-next-line no-alert
+      alert('Vote submitted!');
+    }
+  }, [isLoading, isSuccess]);
 
   return (
     <div className='flex h-full w-full justify-center'>
@@ -30,16 +39,16 @@ export default function CastPage() {
         <div className='flex h-full w-full flex-col items-center justify-around space-y-16 pt-20 lg:flex-row lg:items-end lg:justify-center lg:pt-0'>
           <CandidateCard
             candidatePhoto='/images/vote/sampleCandidate.png'
-            isChosen={chosenID === '1'}
-            candidateName='Candidate 1'
-            candidateID='1'
+            isChosen={chosenID === 'YXGtNEXLF1EwnhMNhiiW'}
+            candidateName='Lorem'
+            candidateID='YXGtNEXLF1EwnhMNhiiW'
             setChosenID={setChosenID}
           />
           <CandidateCard
             candidatePhoto='/images/vote/sampleCandidate.png'
-            isChosen={chosenID === '2'}
-            candidateName='Candidate 2'
-            candidateID='2'
+            isChosen={chosenID === 'ry0ev7URpasBK6KqKyxG'}
+            candidateName='Ipsum'
+            candidateID='ry0ev7URpasBK6KqKyxG'
             setChosenID={setChosenID}
           />
         </div>
@@ -60,14 +69,18 @@ export default function CastPage() {
               I confirm my choice
             </p>
           </div>
+          {error && (
+            <p className='pb-2 text-center text-sm text-red-600'>{error}</p>
+          )}
           <Button
-            onClick={() => {
+            onClick={async () => {
               if (isConfirmed && chosenID !== null) {
-                console.log(chosenID);
+                // TODO: encyrpted token, voterID from context
+                await vote('sampleToken', '7ACGvpLfnbX1CWeC95Ij', chosenID);
               }
             }}
-            isActive={isConfirmed && chosenID !== null}
-            title='Cast your Vote'
+            isActive={!isLoading && isConfirmed && chosenID !== null}
+            title={isLoading ? 'Submitting...' : "Cast your Vote"}
           />
         </div>
       </div>
