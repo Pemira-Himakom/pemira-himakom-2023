@@ -1,14 +1,16 @@
 'use client';
 
 import Button from '@/components/vote/Button';
+import { NIMContext } from '@/context/NIMContext';
 import useValidateNIM from '@/hooks/vote/useValidateNIM';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 
 export default function ValidatePage() {
   const router = useRouter();
-  const { validate, isLoading, student, error } = useValidateNIM();
+  const { validate, isLoading, error } = useValidateNIM();
+  const { student } = useContext(NIMContext)!;
 
   const [angkatan, setAngkatan] = useState('');
   const [niu, setNIU] = useState('');
@@ -128,9 +130,9 @@ export default function ValidatePage() {
             />
           </div>
         </div>
-        <div className='z-20 pt-8'>
+        <div className='z-20 pt-8 flex flex-col space-y-4 justify-center items-center'>
           {error && (
-            <p className='pb-2 text-center text-sm text-red-600'>{error}</p>
+            <p className='text-center w-[80%] text-sm md:text-base lg:w-full lg:text-lg text-red-600'>{error}</p>
           )}
           <Button
             onClick={async () => {

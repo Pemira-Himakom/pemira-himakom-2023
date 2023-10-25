@@ -1,15 +1,16 @@
 import React from 'react';
 import './globals.css';
 import type { Metadata } from 'next';
-import localFont from 'next/font/local'
+import localFont from 'next/font/local';
 // eslint-disable-next-line camelcase
-import { Cinzel_Decorative } from 'next/font/google'
- 
+import { Cinzel_Decorative } from 'next/font/google';
+import NIMProvider from '@/context/NIMContext';
+
 const cinzelDecorative = Cinzel_Decorative({
   subsets: ['latin'],
   weight: ['400', '700', '900'],
   variable: '--font-cinzel-decorative',
-})
+});
 
 const ppMori = localFont({
   src: [
@@ -29,8 +30,8 @@ const ppMori = localFont({
       style: 'normal',
     },
   ],
-  variable: "--font-pp-mori"
-})
+  variable: '--font-pp-mori',
+});
 
 export const metadata: Metadata = {
   title: 'Pemira 2023',
@@ -44,8 +45,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${cinzelDecorative.variable} ${cinzelDecorative.className} ${ppMori.variable} font-sans`}>{children}</body>
+      <NIMProvider>
+        <body
+          className={`${cinzelDecorative.variable} ${cinzelDecorative.className} ${ppMori.variable} font-sans`}
+        >
+          {children}
+        </body>
+      </NIMProvider>
     </html>
   );
 }
-

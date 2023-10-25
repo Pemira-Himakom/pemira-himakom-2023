@@ -11,7 +11,17 @@ const useCandidate = (candidateID: string) => {
       const querySnapshot = await getDoc(
         doc(firestore, 'candidates', candidateID)
       );
-      const data = querySnapshot.data() as Candidate;
+      const data: Candidate = {
+        id: querySnapshot.id,
+        nim: querySnapshot.data()!.nim,
+        name: querySnapshot.data()!.name,
+        email: querySnapshot.data()!.email,
+        vision: querySnapshot.data()!.vision,
+        mission: querySnapshot.data()!.mission,
+        photoURL: querySnapshot.data()!.photoURL,
+        grandDesignURL: querySnapshot.data()!.grandDesignURL,
+        cvURL: querySnapshot.data()!.cvURL,
+      };
 
       setCandidate(data);
     };

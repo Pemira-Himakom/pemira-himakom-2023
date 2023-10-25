@@ -2,21 +2,33 @@
 
 import Button from '@/components/vote/Button';
 import CandidateCard from '@/components/vote/CandidateCard';
+import { NIMContext } from '@/context/NIMContext';
+import useCandidates from '@/hooks/candidate/useCandidates';
 import useVote from '@/hooks/vote/useVote';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useContext, useEffect, useState } from 'react';
 
 export default function CastPage() {
+  const router = useRouter();
+  const { student } = useContext(NIMContext);
+  const { candidates } = useCandidates();
   const { vote, error, isLoading, isSuccess } = useVote();
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [chosenID, setChosenID] = useState<string | null>('');
 
   useEffect(() => {
-    if(isSuccess && !isLoading) {
+    if (student === null || student === undefined) {
+      router.push('/vote/validate');
+    }
+  }, [student, router]);
+
+  useEffect(() => {
+    if (isSuccess && !isLoading) {
       // eslint-disable-next-line no-alert
       alert('Vote submitted!');
     }
-  }, [isLoading, isSuccess]);
+  }, [isLoading, isSuccess, chosenID]);
 
   return (
     <div className='flex h-full w-full justify-center'>
@@ -37,20 +49,16 @@ export default function CastPage() {
           className='hidden md:block md:w-[35rem] lg:w-[50rem]'
         />
         <div className='flex h-full w-full flex-col items-center justify-around space-y-16 pt-20 lg:flex-row lg:items-end lg:justify-center lg:pt-0'>
-          <CandidateCard
-            candidatePhoto='/images/vote/sampleCandidate.png'
-            isChosen={chosenID === 'YXGtNEXLF1EwnhMNhiiW'}
-            candidateName='Lorem'
-            candidateID='YXGtNEXLF1EwnhMNhiiW'
-            setChosenID={setChosenID}
-          />
-          <CandidateCard
-            candidatePhoto='/images/vote/sampleCandidate.png'
-            isChosen={chosenID === 'ry0ev7URpasBK6KqKyxG'}
-            candidateName='Ipsum'
-            candidateID='ry0ev7URpasBK6KqKyxG'
-            setChosenID={setChosenID}
-          />
+          {candidates?.map((candidate) => (
+            <CandidateCard
+              key={candidate.id}
+              candidateID={candidate.id}
+              candidatePhoto={candidate.photoURL}
+              candidateName={candidate.name}
+              isChosen={chosenID === candidate.id}
+              setChosenID={setChosenID}
+            />
+          ))}
         </div>
         <div className='mt-16 flex flex-col justify-center space-y-4 pt-8'>
           <div className='flex w-full items-center justify-center space-x-3'>
@@ -74,13 +82,18 @@ export default function CastPage() {
           )}
           <Button
             onClick={async () => {
-              if (isConfirmed && chosenID !== null) {
-                // TODO: encyrpted token, voterID from context
-                await vote('sampleToken', '7ACGvpLfnbX1CWeC95Ij', chosenID);
+              if (isConfirmed && chosenID !== null && student !== null) {
+                await vote(student!.id, chosenID);
               }
             }}
-            isActive={!isLoading && isConfirmed && chosenID !== null}
-            title={isLoading ? 'Submitting...' : "Cast your Vote"}
+            isActive={
+              student !== null &&
+              student !== undefined &&
+              !isLoading &&
+              isConfirmed &&
+              chosenID !== null
+            }
+            title={isLoading ? 'Submitting...' : 'Cast your Vote'}
           />
         </div>
       </div>

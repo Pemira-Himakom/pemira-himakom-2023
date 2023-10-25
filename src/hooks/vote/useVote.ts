@@ -1,14 +1,19 @@
+import { NIMContext } from '@/context/NIMContext';
 import firestore from '@/firebase/config';
 import { Timestamp, addDoc, collection, doc, updateDoc } from 'firebase/firestore';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 const useVote = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState("");
+  const { deactivate } = useContext(NIMContext);
 
-  const vote = async (token: string, voterID: string, candidateID: string) => {
+  const vote = async (voterID: string, candidateID: string) => {
     setIsLoading(true);
+    
+    // TODO: Generate token
+    const token = Math.random().toString(36).substring(2, 9);
 
     try {
       await addDoc(collection(firestore, 'votes'), {
@@ -21,11 +26,13 @@ const useVote = () => {
         isVoted: true,
       });
 
+
       setIsSuccess(true);
     } catch (e) {
       setError("Gagal melakukan voting");
     }
 
+    deactivate();
     setIsLoading(false);
   };
 

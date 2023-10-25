@@ -1,9 +1,11 @@
 export type Candidate = {
+  id: string;
   nim: string;
-  nama: string;
+  name: string;
   email: string;
-  visi: string;
-  misi: string[];
+  vision: string;
+  photoURL: string;
+  mission: string[];
   grandDesignURL: string;
   cvURL: string;
 };

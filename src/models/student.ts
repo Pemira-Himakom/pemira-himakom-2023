@@ -1,4 +1,5 @@
 export type Student = {
+  id: string;
   nim: string;
   fullname: string;
   codify: string;

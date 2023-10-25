@@ -16,6 +16,7 @@ export default function CandidateCard({
 }) {
   return (
     <button
+      key={candidateID}
       type='button'
       onClick={() => setChosenID(candidateID)}
       className={`${
