@@ -1,7 +1,14 @@
+"use client";
+
+// import useCandidate from '@/hooks/candidate/useCandidate';
+// import useCandidates from '@/hooks/candidate/useCandidates';
 import React from 'react';
 import Image from 'next/image';
 
 export default function Home() {
+//   const { candidate } = useCandidate('YXGtNEXLF1EwnhMNhiiW');
+//   const { candidates } = useCandidates();
+
   return (
     <section className='flex bg-main flex-col items-center justify-between p-16 sm:p-20 md:p-24 lg:p-24 overflow-hidden h-auto w-screen relative'>
       <Image
