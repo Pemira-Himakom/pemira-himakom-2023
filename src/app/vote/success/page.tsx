@@ -1,13 +1,13 @@
 'use client';
 
-import Image from 'next/image'
-import React from 'react'
-import Button from '@/components/vote/Button'
+import Image from 'next/image';
+import React from 'react';
+import Button from '@/components/vote/Button';
 
 export default function VoteSuccessPage() {
     return (
         <div className='h-full'>
-            <div className='z-10 h-full flex flex-col items-center justify-center md:h-[100%]'>
+            <div className='z-10 h-full flex flex-col items-center justify-center md:h-[100%] md:pt-[10vh] lg:pt-[20vh]'>
                 <Image
                     src='/images/vote/titleSuccessMobile.svg'
                     alt='title'
@@ -23,8 +23,8 @@ export default function VoteSuccessPage() {
                     className='z-20 hidden md:block md:w-[375px] lg:w-[37.5rem]'
                 />
 
-                <p className='text-pink z-10 text-center mx-14 md:text-2xl lg:text-4xl text-[1rem] break-words md:break-all'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut luctus, nulla et.</p>
-                <div className='z-10 pt-3 lg:pt-10'>
+                <p className='text-pink z-10 text-center px-[20vw] md:px-[15vw] lg:px-[16vw] xl:px-[20vw]  sm:px-[26vw] md:text-2xl lg:text-4xl'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut luctus, nulla et.</p>
+                <div className='z-10 pt-3 sm:px-8 md:p-4 lg:p-8'>
                     <Button
                         onClick={() => { }}
                         title='Back to Home'
