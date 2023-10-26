@@ -26,7 +26,7 @@ export default function Hero () {
               className='md:block hidden md:min-w-[600px] lg:min-w-[800px]'
             />
           </div>
-          <p className='font-ppMori w-fit rounded-full bg-[#E4BC53] px-5 py-2 lg:px-8 lg:py-4 text-center text-[20px] lg:text-[22px] font-semibold leading-none text-[#20222D]'>
+          <p className=' w-fit rounded-full bg-[#E4BC53] px-5 py-2 lg:px-8 lg:py-4 text-center text-[20px] lg:text-[22px] font-semibold leading-none text-[#20222D]'>
             Vote Now
           </p>
         </div>
