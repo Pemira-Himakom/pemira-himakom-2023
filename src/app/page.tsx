@@ -4,6 +4,7 @@
 // import useCandidates from '@/hooks/candidate/useCandidates';
 import React from 'react';
 import Image from 'next/image';
+// import Hero from '@/components/vote/Hero';
 
 export default function Home() {
 //   const { candidate } = useCandidate('YXGtNEXLF1EwnhMNhiiW');
