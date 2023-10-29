@@ -4,6 +4,7 @@ import Button from '@/components/vote/Button';
 import CandidateCard from '@/components/vote/CandidateCard';
 import { NIMContext } from '@/context/NIMContext';
 import useCandidates from '@/hooks/candidate/useCandidates';
+import useEncode from '@/hooks/token/useEncode';
 import useVote from '@/hooks/vote/useVote';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -12,16 +13,25 @@ import React, { useContext, useEffect, useState } from 'react';
 export default function CastPage() {
   const router = useRouter();
   const { student } = useContext(NIMContext);
+
   const { candidates } = useCandidates();
+  const { encode, encodedData } = useEncode();
   const { vote, error, isLoading, isSuccess } = useVote();
+
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [chosenID, setChosenID] = useState<string | null>('');
 
   useEffect(() => {
-    if (student === null || student === undefined) {
+    if (isSuccess) {
+      router.push('/vote/success');
+    } else if (
+      error === '' &&
+      !isLoading &&
+      (student === null || student === undefined)
+    ) {
       router.push('/vote/validate');
     }
-  }, [student, router]);
+  }, [student, router, error, isLoading, isSuccess]);
 
   useEffect(() => {
     if (isSuccess && !isLoading) {
@@ -29,6 +39,13 @@ export default function CastPage() {
       alert('Vote submitted!');
     }
   }, [isLoading, isSuccess, chosenID]);
+
+  useEffect(() => {
+    if (encodedData) {
+      vote(encodedData, student!.id, chosenID!);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [encodedData]);
 
   return (
     <div className='flex h-full w-full justify-center'>
@@ -83,7 +100,11 @@ export default function CastPage() {
           <Button
             onClick={async () => {
               if (isConfirmed && chosenID !== null && student !== null) {
-                await vote(student!.id, chosenID);
+                encode({
+                  generation: student!.generation.toString(),
+                  codify: student!.codify,
+                  votedAt: new Date(),
+                });
               }
             }}
             isActive={

@@ -88,7 +88,8 @@ export default function ValidatePage() {
               ref={niuInput}
               onKeyDown={(e) => {
                 if (
-                  e.key.toLowerCase() === 'arrowleft' &&
+                  (e.key.toLowerCase() === 'arrowleft' ||
+                    e.key.toLowerCase() === 'backspace') &&
                   niuInput.current?.selectionEnd === 0
                 ) {
                   angkatanInput.current?.focus();
@@ -115,10 +116,19 @@ export default function ValidatePage() {
               ref={fakultasInput}
               onKeyDown={(e) => {
                 if (
-                  e.key.toLowerCase() === 'arrowleft' &&
+                  (e.key.toLowerCase() === 'arrowleft' ||
+                    e.key.toLowerCase() === 'backspace') &&
                   fakultasInput.current?.selectionEnd === 0
                 ) {
                   niuInput.current?.focus();
+                } else if (
+                  e.key.toLowerCase() === 'enter' &&
+                  !isLoading &&
+                  angkatan !== '' &&
+                  niu !== '' &&
+                  fakultas !== ''
+                ) {
+                  validate(`${angkatan}/${niu}/PA/${fakultas}`);
                 }
               }}
               onChange={(e) => {
@@ -130,9 +140,11 @@ export default function ValidatePage() {
             />
           </div>
         </div>
-        <div className='z-20 pt-8 flex flex-col space-y-4 justify-center items-center'>
+        <div className='z-20 flex flex-col items-center justify-center space-y-4'>
           {error && (
-            <p className='text-center w-[80%] text-sm md:text-base lg:w-full lg:text-lg text-red-600'>{error}</p>
+            <p className='w-[80%] text-center text-sm text-red-600 md:text-base lg:w-full lg:text-lg'>
+              {error}
+            </p>
           )}
           <Button
             onClick={async () => {
