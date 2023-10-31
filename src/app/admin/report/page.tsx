@@ -1,11 +1,14 @@
 'use client';
 
+import CandidateVotes from '@/components/admin/CandidateVotes';
 import { AdminAuthContext } from '@/context/AdminAuthContext';
+import useCandidates from '@/hooks/candidate/useCandidates';
 import { useRouter } from 'next/navigation';
 import React, { useContext, useEffect } from 'react';
 
 export default function AdminReportPage() {
   const router = useRouter();
+  const { candidates } = useCandidates();
   const { admin, isLoading } = useContext(AdminAuthContext);
 
   useEffect(() => {
@@ -15,10 +18,12 @@ export default function AdminReportPage() {
   }, [admin, isLoading, router]);
 
   return (
-    <div className='flex h-full w-full flex-col items-center bg-frame bg-opacity-[85%] p-8 text-white'>
-      <h1>Admin Report Page</h1>
-      {isLoading && <p>Loading...</p>}
-      {admin && <p>Logged in as {admin.email}</p>}
+    <div className='flex h-full w-full flex-col space-y-8 text-white lg:flex-row lg:space-x-24 lg:space-y-0'>
+      {candidates.map((candidate) => (
+        <div key={candidate.id} className='flex-1'>
+          <CandidateVotes candidate={candidate} />
+        </div>
+      ))}
     </div>
   );
 }

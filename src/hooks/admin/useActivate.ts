@@ -10,7 +10,7 @@ import {
 import { useState } from 'react';
 
 const useActivate = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isActivationLoading, setIsActivationLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState('');
 
@@ -19,7 +19,7 @@ const useActivate = () => {
     codify: string,
     generation: number
   ) => {
-    setIsLoading(true);
+    setIsActivationLoading(false);
 
     try {
       const studentsRef = collection(firestore, 'students');
@@ -41,10 +41,15 @@ const useActivate = () => {
       setError(err.message);
     }
 
-    setIsLoading(false);
+    setIsActivationLoading(false);
   };
 
-  return { error, isLoading, isSuccess, setActivationStatus };
+  return {
+    error,
+    isSuccess,
+    isActivationLoading,
+    setActivationStatus,
+  };
 };
 
 export default useActivate;
