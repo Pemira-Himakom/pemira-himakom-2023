@@ -1,7 +1,11 @@
 import React from "react";
-import Image from "../../../node_modules/next/image";
+// eslint-disable-next-line import/no-unresolved
+import Image from "next/image";
+// eslint-disable-next-line import/no-unresolved
 import TimelineLogo from "../../../public/images/main/TimelineLogo.png"
+// eslint-disable-next-line import/no-unresolved
 import Sunflower from "../../../public/images/main/SunFlower.png"
+// eslint-disable-next-line import/no-unresolved
 import TimelineFlower from "../../../public/images/main/TimelineFlower.png"
 
 export default function Timeline () {
