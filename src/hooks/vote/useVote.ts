@@ -1,5 +1,5 @@
 import { NIMContext } from '@/context/NIMContext';
-import firestore from '@/firebase/config';
+import { firestore } from '@/firebase/config';
 import {
   Timestamp,
   addDoc,
@@ -16,11 +16,7 @@ const useVote = () => {
 
   const { deactivate } = useContext(NIMContext);
 
-  const vote = async (
-    token: string,
-    voterID: string,
-    candidateID: string
-  ) => {
+  const vote = async (token: string, voterID: string, candidateID: string) => {
     setIsLoading(true);
 
     try {
