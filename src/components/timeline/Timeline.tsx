@@ -10,30 +10,30 @@ import TimelineFlower from "../../../public/images/main/TimelineFlower.png"
 
 export default function Timeline () {
     return (
-      <section className='flex h-auto flex-col items-center justify-center bg-[#20222D] py-40'>
+      <section className='-mt-1 flex h-auto flex-col items-center justify-center bg-[#212332] py-40 pt-40 md:pt-60'>
         {/* flower decor */}
         <Image
           src={TimelineFlower}
           width={500}
           height={500}
           alt='Flower decor'
-          className='absolute left-0 w-auto md:-ml-[200px] md:mb-[800px] lg:-ml-[340px] lg:mb-20 lg:h-[800px]'
+          className='absolute -left-44 mb-[1400px] w-auto md:left-0 md:-ml-[200px] md:mb-[800px] lg:-ml-[340px] lg:mb-20 lg:h-[800px]'
         />
 
         {/* Header */}
-        <div className='pb-10'>
+        <div className='mb-[180px] h-10 pb-10'>
           <Image
             src={TimelineLogo}
             width={500}
             height={500}
-            alt='timeline logo w-[329px] h-auto'
+            alt='timeline logo'
           />
         </div>
 
         {/* timeline */}
-        <div className='flex flex-col gap-5 lg:flex-row'>
+        <div className='flex flex-col gap-5 font-sans text-[12px] md:text-[16px] lg:flex-row lg:text-[16px]'>
           {/* text buttom */}
-          <div className='mr-[135px] flex flex-row-reverse items-center text-white lg:mr-0 lg:mt-12 lg:flex-col'>
+          <div className='mr-[115px] flex flex-row-reverse items-center text-white md:mr-[135px] lg:mr-0 lg:mt-12 lg:flex-col'>
             <div className='my-5 flex items-center justify-center'>
               <Image
                 src={Sunflower}
@@ -53,7 +53,7 @@ export default function Timeline () {
           </div>
 
           {/* text above */}
-          <div className='ml-[140px] flex flex-row-reverse items-center text-white lg:mb-12 lg:ml-0 lg:flex-col'>
+          <div className='mr-[14px] flex flex-row-reverse items-center text-white md:mr-0 lg:mb-12 lg:ml-0 lg:flex-col'>
             <div className=' lg:text-center'>
               <p className='font-semibold'>17-28 October</p>
               <p>Open Registration</p>
@@ -73,7 +73,7 @@ export default function Timeline () {
           </div>
 
           {/* text buttom */}
-          <div className='mr-[135px] flex flex-row-reverse items-center text-white lg:mr-0 lg:mt-12 lg:flex-col'>
+          <div className='mr-[115px] flex flex-row-reverse items-center text-white md:mr-[135px] lg:mr-0 lg:mt-12 lg:flex-col'>
             <div className='my-5 flex items-center justify-center'>
               <Image
                 src={Sunflower}
@@ -93,7 +93,7 @@ export default function Timeline () {
           </div>
 
           {/* text above */}
-          <div className='ml-[140px] flex flex-row-reverse items-center text-white lg:mb-12 lg:ml-0 lg:flex-col'>
+          <div className='ml-[140px] mr-[14px] flex flex-row-reverse items-center text-white md:mr-0 lg:mb-12 lg:ml-0 lg:flex-col'>
             <div className=' lg:text-center'>
               <p className='font-semibold'>17-28 October</p>
               <p>Open Registration</p>
@@ -113,7 +113,7 @@ export default function Timeline () {
           </div>
 
           {/* text buttom */}
-          <div className='mr-[135px] flex flex-row-reverse items-center text-white lg:mr-0 lg:mt-12 lg:flex-col'>
+          <div className='mr-[115px] flex flex-row-reverse items-center text-white md:mr-[135px] lg:mr-0 lg:mt-12 lg:flex-col'>
             <div className='my-5 flex items-center justify-center'>
               <Image
                 src={Sunflower}
@@ -133,7 +133,7 @@ export default function Timeline () {
           </div>
 
           {/* text above */}
-          <div className='ml-[140px] flex flex-row-reverse items-center text-white lg:mb-12 lg:ml-0 lg:flex-col'>
+          <div className='ml-[140px] mr-[14px] flex flex-row-reverse items-center text-white md:mr-0 lg:mb-12 lg:ml-0 lg:flex-col'>
             <div className=' lg:text-center'>
               <p className='font-semibold'>17-28 October</p>
               <p>Open Registration</p>
