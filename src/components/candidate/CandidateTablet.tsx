@@ -5,8 +5,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SwiperSlide } from 'swiper/react';
-import { Navigation, A11y, Autoplay } from 'swiper/modules';
 import CV from '../../../public/images/main/CV.svg';
 import GD from '../../../public/images/main/Grand Design.svg';
 import FB from '../../../public/images/main/bushframe.png';
