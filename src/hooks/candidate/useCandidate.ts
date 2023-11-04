@@ -1,4 +1,4 @@
-import firestore from '@/firebase/config';
+import { firestore } from '@/firebase/config';
 import { Candidate } from '@/models/candidate';
 import { getDoc, doc } from 'firebase/firestore';
 import { useState, useEffect } from 'react';

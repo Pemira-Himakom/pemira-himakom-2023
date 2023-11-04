@@ -5,6 +5,7 @@ import localFont from 'next/font/local';
 // eslint-disable-next-line camelcase
 import { Cinzel_Decorative } from 'next/font/google';
 import NIMProvider from '@/context/NIMContext';
+import AdminAuthProvider from '@/context/AdminAuthContext';
 
 const cinzelDecorative = Cinzel_Decorative({
   subsets: ['latin'],
