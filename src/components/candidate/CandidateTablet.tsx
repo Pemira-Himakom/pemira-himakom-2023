@@ -36,7 +36,7 @@ export default function CandidateTablet({
 
   return (
     <>
-      <div className='flex justify-center mt-10'>
+      <div className='mt-10 flex justify-center'>
         {/* frame bush */}
         <button
           type='button'
@@ -98,7 +98,7 @@ export default function CandidateTablet({
           </div>
         </button>
       </div>
-      <div className='flex flex-col items-center text-white '>
+      <div className='flex flex-col items-center text-[12px] text-white md:text-[16px] lg:text-[16px]'>
         <div>
           <Image
             src={Vision}

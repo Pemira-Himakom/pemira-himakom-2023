@@ -8,7 +8,7 @@ export default function Pages () {
         <div>
             <Hero />
             <Timeline />
-            <CandidateContain />
+            <CandidateContain/>
         </div>
     );
 }

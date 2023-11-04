@@ -20,7 +20,7 @@ export default function CandidateContain() {
   const [isOpen, setIsOpen] = useState(0);
 
   return (
-    <section className='bg-[#212332]'>
+    <section className='bg-[#212332] overflow-x-hidden 2xl:container'>
       {/* logo Candidates */}
       <div className='-mt-1 mb-10 flex justify-center'>
         <Image
@@ -37,7 +37,7 @@ export default function CandidateContain() {
           className='flex'
           modules={[Navigation, A11y, Autoplay]}
           spaceBetween={28}
-          slidesPerView={1.}
+          slidesPerView={1}
           centeredSlides
           onSwiper={(swiper: any) => console.log(swiper)}
           onSlideChange={() => {}}
@@ -117,7 +117,7 @@ export default function CandidateContain() {
       <div className='flex h-fit items-end justify-center md:pt-20 lg:h-[600px]'>
         <button
           type='button'
-          className=' z-30 relative mb-[80px] h-fit w-[260px] rounded-full bg-[#E4BC53] px-6 py-3 text-center text-[20px] font-semibold leading-none text-[#20222D] duration-500 md:w-fit lg:w-[400px] lg:px-8 lg:py-4 lg:text-[22px]'
+          className=' relative z-30 mb-[80px] h-fit w-[260px] rounded-full bg-[#E4BC53] px-6 py-3 text-center text-[20px] font-semibold leading-none text-[#20222D] duration-500 md:w-fit lg:w-[400px] lg:px-8 lg:py-4 lg:text-[22px]'
         >
           Vote Now
         </button>
@@ -126,7 +126,14 @@ export default function CandidateContain() {
           width={1000}
           height={1000}
           alt='flower'
-          className="absolute h-[400px] lg:h-[600px] w-auto lg:mb-[80px] z-2 ml-[70vh] mb-40 rotate-[-10deg] md:rotate-0 md:mb-0 md:ml-[80vh] lg:ml-0"
+          className='z-2 absolute right-0 -mr-[80px] mb-40 h-[400px] w-auto rotate-[-10deg] md:mb-0 md:ml-[80vh] md:mr-0 md:rotate-0 lg:mb-[80px] lg:ml-0 lg:hidden lg:h-[600px]'
+        />
+        <Image
+          src={FlowerVote}
+          width={1000}
+          height={1000}
+          alt='flower'
+          className='z-2 absolute mb-40 hidden h-[400px] w-auto lg:mb-[80px] lg:ml-0 lg:block lg:h-[600px]'
         />
       </div>
     </section>

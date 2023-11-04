@@ -129,7 +129,7 @@ export default function Candidate({
           <Disclosure.Panel static>
             {/* Mobile drop down vision mission */}
             <div
-              className={`overflow-hidden pb-20 text-center text-white transition-all duration-700 md:hidden ${
+              className={`overflow-hidden pb-20 text-center text-[12px] text-white transition-all duration-700 md:hidden md:text-[16px] lg:text-[16px] ${
                 isActive
                   ? 'h-auto translate-y-[0vh] opacity-100'
                   : 'h-0 -translate-y-[30vh] opacity-0'

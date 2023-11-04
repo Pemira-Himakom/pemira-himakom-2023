@@ -47,7 +47,7 @@ export default function RootLayout({
     <html lang='en'>
       <NIMProvider>
         <body
-          className={`${cinzelDecorative.variable} ${cinzelDecorative.className} ${ppMori.variable} font-sans`}
+          className={`${cinzelDecorative.variable} ${cinzelDecorative.className} ${ppMori.variable} font-sans overflow-x-hidden`}
         >
           {children}
         </body>
