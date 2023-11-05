@@ -5,7 +5,6 @@ import localFont from 'next/font/local';
 // eslint-disable-next-line camelcase
 import { Cinzel_Decorative } from 'next/font/google';
 import NIMProvider from '@/context/NIMContext';
-import AdminAuthProvider from '@/context/AdminAuthContext';
 
 const cinzelDecorative = Cinzel_Decorative({
   subsets: ['latin'],
@@ -48,7 +47,7 @@ export default function RootLayout({
     <html lang='en'>
       <NIMProvider>
         <body
-          className={`${cinzelDecorative.variable} ${cinzelDecorative.className} ${ppMori.variable} font-sans overflow-x-hidden`}
+          className={`${cinzelDecorative.variable} ${cinzelDecorative.className} ${ppMori.variable} font-sans overflow-x-hidden bg-main`}
         >
           {children}
         </body>

@@ -1,26 +1,27 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, A11y, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
-import Candidate from '@/components/candidate/CandidateFrame';
+import Candidate from '@/components/landing/CandidateFrame';
 import useCandidates from '@/hooks/candidate/useCandidates';
 import CandidateLogo from '../../../public/images/main/Candidate.svg';
 import Vision from '../../../public/images/main/Vision.svg';
 import Mission from '../../../public/images/main/Mission.svg';
-import CandidateTab from './CandidateTablet';
-import FlowerVote from '../../../public/images/main/flowerVoteNow.png'
+import CandidateTablet from './CandidateTablet';
+import FlowerVote from '../../../public/images/main/flowerVoteNow.png';
 
 import 'swiper/css';
 
 export default function CandidateContain() {
+  const router = useRouter();
   const { candidates } = useCandidates();
-  const [chosenID, setChosenID] = useState<string | null>('');
   const [isOpen, setIsOpen] = useState(0);
 
   return (
-    <section className='bg-[#212332] overflow-x-hidden 2xl:container'>
+    <section className='overflow-x-hidden bg-[#212332] 2xl:container'>
       {/* logo Candidates */}
       <div className='-mt-1 mb-10 flex justify-center'>
         <Image
@@ -37,27 +38,22 @@ export default function CandidateContain() {
           className='flex'
           modules={[Navigation, A11y, Autoplay]}
           spaceBetween={28}
-          slidesPerView={1}
+          slidesPerView={2}
           centeredSlides
-          onSwiper={(swiper: any) => console.log(swiper)}
           onSlideChange={() => {}}
         >
           {candidates?.map((candidate, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <SwiperSlide key={index}>
-              <CandidateTab
+              <CandidateTablet
                 key={candidate.id}
-                candidateID={candidate.id}
                 candidatePhoto={candidate.photoURL}
                 candidateName={candidate.name}
                 candidateVision={candidate.vision}
                 candidateMission={candidate.mission}
                 candidateGrandDesign={candidate.grandDesignURL}
                 candidateCV={candidate.cvURL}
-                isChosen={chosenID === candidate.id}
-                setChosenID={setChosenID}
                 setIsOpen={setIsOpen}
-                isActive={isOpen === index}
                 index={index}
               />
             </SwiperSlide>
@@ -71,15 +67,12 @@ export default function CandidateContain() {
           {candidates?.map((candidate, index) => (
             <Candidate
               key={candidate.id}
-              candidateID={candidate.id}
               candidatePhoto={candidate.photoURL}
               candidateName={candidate.name}
               candidateVision={candidate.vision}
               candidateMission={candidate.mission}
               candidateGrandDesign={candidate.grandDesignURL}
               candidateCV={candidate.cvURL}
-              isChosen={chosenID === candidate.id}
-              setChosenID={setChosenID}
               setIsOpen={setIsOpen}
               isActive={isOpen === index}
               index={index}
@@ -117,6 +110,7 @@ export default function CandidateContain() {
       <div className='flex h-fit items-end justify-center md:pt-20 lg:h-[600px]'>
         <button
           type='button'
+          onClick={() => router.push('/vote/validate')}
           className=' relative z-30 mb-[80px] h-fit w-[260px] rounded-full bg-[#E4BC53] px-6 py-3 text-center text-[20px] font-semibold leading-none text-[#20222D] duration-500 md:w-fit lg:w-[400px] lg:px-8 lg:py-4 lg:text-[22px]'
         >
           Vote Now

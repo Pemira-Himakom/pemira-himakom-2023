@@ -1,14 +1,19 @@
-"use client";
+'use client';
 
 import React from 'react';
-// import Hero from '@/components/vote/Hero';
-import About from '@/components/about/About';
-import Footer from '@/components/about/Footer';
+import About from '@/components/landing/About';
+import Footer from '@/components/landing/Footer';
+import CandidateContain from '@/components/landing/CandidateContain';
+import LandingHero from '@/components/landing/Hero';
+import Timeline from '@/components/landing/Timeline';
 
 export default function Home() {
   return (
-    <div className='flex flex-col w-full h-full overflow-hidden'>
+    <div className='flex h-full w-full flex-col overflow-hidden'>
+      <LandingHero />
       <About />
+      <Timeline />
+      <CandidateContain />
       <Footer />
     </div>
   );
