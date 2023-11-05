@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+// import Hero from '@/components/vote/Hero';
 import About from '@/components/about/About';
 import Footer from '@/components/about/Footer';
 

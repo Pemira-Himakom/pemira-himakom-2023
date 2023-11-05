@@ -46,15 +46,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <AdminAuthProvider>
-        <NIMProvider>
-          <body
-            className={`${cinzelDecorative.variable} ${cinzelDecorative.className} ${ppMori.variable} font-sans`}
-          >
-            {children}
-          </body>
-        </NIMProvider>
-      </AdminAuthProvider>
+      <NIMProvider>
+        <body
+          className={`${cinzelDecorative.variable} ${cinzelDecorative.className} ${ppMori.variable} font-sans overflow-x-hidden`}
+        >
+          {children}
+        </body>
+      </NIMProvider>
     </html>
   );
 }
